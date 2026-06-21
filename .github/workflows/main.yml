@@ -7,7 +7,6 @@ jobs:
 test:
 runs-on: windows-latest
 
-
 steps:
   - name: Test API
     shell: powershell
@@ -17,18 +16,11 @@ steps:
       $url = "https://www.cityheaven.net/api/okinawa/v1/shops/diaries/shopid-2000001072/type0/girlid-24886544/sort0/"
 
       try {
-
           $json = Invoke-RestMethod $url
-
           Write-Host "成功"
-
           Write-Host $json.diary_id[0]
-
       }
       catch {
-
           Write-Host "失敗"
-
           Write-Host $_
-
       }
