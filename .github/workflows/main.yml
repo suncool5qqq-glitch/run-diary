@@ -1,13 +1,14 @@
 name: Test CityHeaven
 
 on:
-workflow_dispatch:
+ workflow_dispatch:
 
 jobs:
-test:
-runs-on: windows-latest
+ test:
+  runs-on: windows-latest
 
-steps:
+
+  steps:
   - name: Test API
     shell: powershell
     run: |
@@ -17,10 +18,14 @@ steps:
 
       try {
           $json = Invoke-RestMethod $url
+
           Write-Host "成功"
+
+          Write-Host "最新ID:"
           Write-Host $json.diary_id[0]
       }
       catch {
           Write-Host "失敗"
           Write-Host $_
       }
+
